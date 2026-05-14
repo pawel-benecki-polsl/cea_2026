@@ -1,0 +1,8 @@
+# Profil deweloperski.
+# Uruchom przez: --spring.profiles.active=dev
+#
+# Ustaw payment.failure-rate=100 zeby wymusic kompensacje
+# (slajdy: "Failure path", demo).
+
+payment:
+  failure-rate: 20

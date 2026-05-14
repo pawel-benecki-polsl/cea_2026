@@ -10,16 +10,32 @@ public class Seat {
     @GeneratedValue
     private Long id;
 
+    private String label;
+
     @Enumerated(EnumType.STRING)
-    private SeatStatus status = SeatStatus.FREE;
+    private SeatStatus status = SeatStatus.AVAILABLE;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = " event_id ")
     @JsonIgnore
     private Event event;
 
+    @Version
+    Long version;
+
+    public Seat() {}
+
+    public Seat(String label, Event event) {
+        this.label = label;
+        this.event = event;
+    }
+
     public Long getId() {
         return id;
+    }
+
+    public String getLabel() {
+        return label;
     }
 
     public SeatStatus getStatus() {
